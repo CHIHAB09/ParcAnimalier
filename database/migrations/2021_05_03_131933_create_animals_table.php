@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParcsTable extends Migration
+class CreateAnimalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateParcsTable extends Migration
      */
     public function up()
     {
-        Schema::create('parcs', function (Blueprint $table) {
+        Schema::create('animals', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('horaires');
-            $table->date('fermeture');
+            $table->string('nom',100);
+            $table->dateTime('entrer');
+            $table->dateTime('sortie');
+            $table->dateTime('age');
+            $table->string('sexe',65);
+            $table->tinyInteger('poids');
+            $table->binary('actif');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateParcsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parcs');
+        Schema::dropIfExists('animals');
     }
 }

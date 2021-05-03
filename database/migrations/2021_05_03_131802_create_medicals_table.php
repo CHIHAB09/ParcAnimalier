@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParcsTable extends Migration
+class CreateMedicalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateParcsTable extends Migration
      */
     public function up()
     {
-        Schema::create('parcs', function (Blueprint $table) {
+        Schema::create('medicals', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('horaires');
-            $table->date('fermeture');
+            $table->string('nom',100);
+            $table->string('maladie',255);
+            $table->date('arriver');
+            $table->date('sortie');
             $table->timestamps();
+            $table->foreignId('animal_id')->constrained();
         });
     }
 
@@ -28,6 +31,6 @@ class CreateParcsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parcs');
+        Schema::dropIfExists('medicals');
     }
 }

@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Parc extends Model
+class Race extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'horaire',
-        'fermeture'
+        'genre'
     ];
+
+    public function race()
+    {
+        return $this->belongTo(Animal::class);
+    }
 }

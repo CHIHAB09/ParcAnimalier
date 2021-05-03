@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Parc extends Model
+class Food extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'horaire',
-        'fermeture'
+        'nom',
+        'quantiter',
+        'heure',
+        'receveur',
+        'nombre_repas'
     ];
 }
