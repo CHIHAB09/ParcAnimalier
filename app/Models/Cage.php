@@ -14,5 +14,10 @@ class Cage extends Model
         'actif'
     ];
 
-    
+    public function cage()
+    {
+        return $this->belongTo(Race::class);
+    }
+
+
 }

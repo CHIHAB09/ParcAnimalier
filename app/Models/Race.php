@@ -17,4 +17,9 @@ class Race extends Model
     {
         return $this->belongTo(Animal::class);
     }
+
+    public function cageByRaces()
+    {
+        return $this->hasMany(Cage::class);
+    }
 }
