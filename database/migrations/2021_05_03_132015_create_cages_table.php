@@ -18,6 +18,7 @@ class CreateCagesTable extends Migration
             $table->string('nom',150);
             $table->binary('actif');
             $table->timestamps();
+            $table->foreignId('race_id')->references('id')->on('races');
         });
     }
 

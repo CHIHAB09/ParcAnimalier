@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Food;
+use App\Models\Race;
 use App\Models\Medical;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,5 +30,10 @@ class Animal extends Model
     public function raceAnimaux()
     {
         return $this->hasMany(Race::class);
+    }
+
+    public function foods()
+    {
+        return $this->belongsToMany(Food::class);
     }
 }

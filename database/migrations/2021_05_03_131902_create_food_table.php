@@ -18,9 +18,9 @@ class CreateFoodTable extends Migration
             $table->string('nom',150);
             $table->bigInteger('quantiter');
             $table->dateTime('heure');
-            $table->string('receveur');
             $table->tinyInteger('nombre_repas');
             $table->timestamps();
+            $table->foreignId('animal_id')->references('id')->on('animal_food');
         });
     }
 

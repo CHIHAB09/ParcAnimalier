@@ -20,7 +20,7 @@ class CreateMedicalsTable extends Migration
             $table->date('arriver');
             $table->date('sortie');
             $table->timestamps();
-            $table->foreignId('animal_id')->constrained();
+            $table->foreignId('animal_id')->references('id')->on('animals');
         });
     }
 

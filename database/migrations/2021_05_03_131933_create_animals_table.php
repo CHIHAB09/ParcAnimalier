@@ -17,12 +17,13 @@ class CreateAnimalsTable extends Migration
             $table->id();
             $table->string('nom',100);
             $table->dateTime('entrer');
-            $table->dateTime('sortie');
+            $table->dateTime('sortie')->nullable();
             $table->dateTime('age');
             $table->string('sexe',65);
-            $table->tinyInteger('poids');
+            $table->unsignedTinyInteger('poids');
             $table->binary('actif');
             $table->timestamps();
+            $table->foreignId('food_id')->references('id')->on('animal_food');
         });
     }
 
