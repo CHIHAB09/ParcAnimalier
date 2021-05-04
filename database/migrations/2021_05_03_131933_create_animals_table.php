@@ -21,7 +21,7 @@ class CreateAnimalsTable extends Migration
             $table->dateTime('age');
             $table->string('sexe',65);
             $table->unsignedTinyInteger('poids');
-            $table->binary('actif');
+            $table->boolean('actif');
             $table->timestamps();
             $table->foreignId('food_id')->references('id')->on('animal_food');
         });

@@ -78,7 +78,9 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        return view('animals.edit', [
+            'animals' => $animal
+        ]);
     }
 
     /**
@@ -90,7 +92,17 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $animal->update([
+            'nom' => $request->nom,
+            'sexe' => $request->sexe,
+            'age' => $request->age,
+            'poids' => $request->poids,
+            'entrer' => $request->entrer,
+            'sortie' => $request->sortie,
+            'actif' => $request->actif
+
+        ]);
+        return redirect()->route('animal.show', [$animal]);
     }
 
     /**
@@ -102,11 +114,12 @@ class AnimalController extends Controller
     public function destroy(Animal $animal)
     {
         //on recupere un post avec find()
-        $animal = Post::find(15);
+        /* $animal = Post::find(15); */
         
         $animal->delete();
 
-        dd('post suprrimer!!');
+        /* dd('post suprrimer!!'); */
+        return redirect()->route('animals.index');
 
     }
 }

@@ -27,7 +27,7 @@ class Animal extends Model
         return $this->hasMany(Medical::class);
     }
 
-    public function raceAnimaux()
+    public function raceAnimals()
     {
         return $this->hasMany(Race::class);
     }
