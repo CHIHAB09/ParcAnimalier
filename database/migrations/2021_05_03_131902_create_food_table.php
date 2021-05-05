@@ -14,13 +14,13 @@ class CreateFoodTable extends Migration
     public function up()
     {
         Schema::create('food', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nom',150);
             $table->bigInteger('quantiter');
             $table->dateTime('heure');
             $table->tinyInteger('nombre_repas');
             $table->timestamps();
-            $table->foreignId('animal_id')->references('id')->on('animal_food');
+            $table->foreignId('animal_id')->constrained();
         });
     }
 

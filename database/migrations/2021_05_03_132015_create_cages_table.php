@@ -14,7 +14,7 @@ class CreateCagesTable extends Migration
     public function up()
     {
         Schema::create('cages', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nom',150);
             $table->binary('actif');
             $table->timestamps();

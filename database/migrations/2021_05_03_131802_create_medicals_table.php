@@ -14,11 +14,11 @@ class CreateMedicalsTable extends Migration
     public function up()
     {
         Schema::create('medicals', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nom',100);
             $table->string('maladie',255);
-            $table->date('arriver');
-            $table->date('sortie');
+            $table->dateTime('arriver');
+            $table->dateTime('sortie');
             $table->timestamps();
             $table->foreignId('animal_id')->references('id')->on('animals');
         });

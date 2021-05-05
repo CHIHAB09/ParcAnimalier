@@ -14,7 +14,7 @@ class CreateParcsTable extends Migration
     public function up()
     {
         Schema::create('parcs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->dateTime('horaires');
             $table->date('fermeture');
             $table->timestamps();

@@ -14,8 +14,9 @@ class AnimalFood extends Migration
     public function up()
     {
         Schema::create('animal_food', function (Blueprint $table) {
-            $table->integer('animal_id');
-            $table->integer('food_id');
+            $table->unsignedBigInteger('animal_id');
+            $table->unsignedBigInteger('food_id');
+
         });
     }
 

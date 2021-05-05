@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnimalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,23 +13,28 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function (){
+    return view('welcome');
+}); 
+
+
 //listing des animaux
-Route::get('animals', 'AnimalController@index')->name('animals.index');
+Route::get('animals', [AnimalController::class, 'index'])->name('animals.index');
 
 //affichage de la page de création
-Route::get('animals/create', 'AnimalController@create')->name('animals.create');
+Route::get('animals/create', [AnimalController::class, 'create'])->name('animals.create');
 
 //création
-Route::post('animals', 'AnimalController@store')->name('animals.store');
+Route::post('animals/store', [AnimalController::class, 'store'])->name('animals.store');
 
 //affichage de la page d'un article
-Route::get('animals/{animal}', 'AnimalController@show')->name('animals.show');
+Route::get('animal/{id}', [AnimalController::class, 'show'])->name('animal.show');
 
 //affichage de la page d'édition
-Route::get('animals/{article}/edit', 'AnimalController@edit')->name('animals.edit');
+Route::get('animals/{id}/edit', [AnimalController::class, 'edit'])->name('animals.edit');
 
 //modification
-Route::put('animals/{animal}', 'AnimalController@update')->name('animals.update');
+Route::put('animals/{id}', 'AnimalController@update')->name('animals.update');
 
 //suppression
 Route::delete('animals/{animal}', 'AnimalController@destroy')->name('animals.destroy');

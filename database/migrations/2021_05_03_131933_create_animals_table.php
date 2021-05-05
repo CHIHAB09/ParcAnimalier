@@ -14,7 +14,7 @@ class CreateAnimalsTable extends Migration
     public function up()
     {
         Schema::create('animals', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nom',100);
             $table->dateTime('entrer');
             $table->dateTime('sortie')->nullable();
@@ -23,7 +23,7 @@ class CreateAnimalsTable extends Migration
             $table->unsignedTinyInteger('poids');
             $table->boolean('actif');
             $table->timestamps();
-            $table->foreignId('food_id')->references('id')->on('animal_food');
+            $table->foreignId('food_id')->constrained();
         });
     }
 
