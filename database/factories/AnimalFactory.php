@@ -28,8 +28,7 @@ class AnimalFactory extends Factory
             'poids'=>$this->faker->numberBetween($min = 50, $max = 200),
             'entrer'=>$this->faker->dateTime(),
             'sortie'=>$this->faker->dateTime(),
-            'actif'=>$this->faker->boolean(),
-            'food_id'=>$this->faker->randomDigit()
+            'actif'=>$this->faker->boolean()
         ];
     }
 }

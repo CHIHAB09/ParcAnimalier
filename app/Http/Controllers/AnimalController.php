@@ -40,8 +40,7 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        
-        Animal::create([
+        $id=Animal::create([
             'nom' => $request->nom,
             'entrer' => $request->entrer,
             'sortie' => $request->sortie,
@@ -50,7 +49,7 @@ class AnimalController extends Controller
             'poids' => $request->poids,
             'actif' => $request->actif,
         ]);
-        dd('animal crée');
+        dd($id);
         /* return redirect()->route('animals.show', [$id]); */
     }
 
@@ -71,11 +70,9 @@ class AnimalController extends Controller
         //qui nous enverra une erreur 404
         /* $animal = Animal::where('nom', 'Ricky')->firstOrfail(); */
         
-    
-
-        return view('animal', [
-            'animal' => $id
-        ]);
+        
+        $id->with('foods')->get();
+        return view('animal', compact('id'));
     }
 
     /**
@@ -122,11 +119,12 @@ class AnimalController extends Controller
     public function destroy(Animal $id)
     {
         //on recupere un post avec find()
-        /* $animal = Animal::find(15); */
+   /*      $animal = Animal::find(16); */
         
         $id->delete();
 
-        /* dd('post suprrimer!!'); */
+        dd('post suprrimer!!');
+        
         return redirect()->route('animals.index');
 
     }

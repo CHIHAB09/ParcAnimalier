@@ -23,10 +23,12 @@
         <input type="radio" id="1" name="actif" class="border-gray-600 border-2" value="1">
                 <label for="1">1</label>
             </label><br>
-       <!--  @foreach(App\Models\Food::all() as $item)
+    @foreach(App\Models\Food::all() as $item)
         <label for="food">{{ $item->nom }}:</label>
             <input type="checkbox" id="food" name="food_id"class="border-gray-600 border-2"><br>
-        @endforeach -->
+        @endforeach
         <button type="submit" class="bg-green-500">Créer</button>
     </form>
+
+    <a href="{{ route('animals.index') }}">Go back</a>
 @endsection

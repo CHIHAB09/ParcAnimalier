@@ -31,8 +31,8 @@ class FoodFactory extends Factory
             'nom'=>$faker->vegetableName(),
             'quantiter'=>$this->faker->numberBetween($min = 50, $max = 200),
             'heure'=>$this->faker->dateTime(),
-            'nombre_repas'=>$this->faker->numberBetween($min = 1, $max = 3),
-            'animal_id'=>$this->faker->randomDigit()
+            'nombre_repas'=>$this->faker->numberBetween($min = 1, $max = 3)
+            
         ];
     }
 }

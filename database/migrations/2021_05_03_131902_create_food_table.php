@@ -20,8 +20,8 @@ class CreateFoodTable extends Migration
             $table->dateTime('heure');
             $table->tinyInteger('nombre_repas');
             $table->timestamps();
-            $table->foreignId('animal_id')->constrained();
         });
+
     }
 
     /**

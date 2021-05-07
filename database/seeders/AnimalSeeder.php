@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Food;
+use App\Models\Animal;
 use Illuminate\Database\Seeder;
-use App\Models\{ Animal, Medical,Food };
 
-class DatabaseSeeder extends Seeder
+class AnimalSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
@@ -23,11 +24,5 @@ class DatabaseSeeder extends Seeder
             shuffle($ids);
             $food->animals()->attach(array_slice($ids,0,rand(1,4)));
         });
-
-        /* Animal::factory()
-        ->has(Medical::factory()->count(4))
-        ->count(10)
-        ->create(); */
-        // \App\Models\User::factory(10)->create();
     }
 }

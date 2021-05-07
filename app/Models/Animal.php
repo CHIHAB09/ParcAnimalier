@@ -36,4 +36,26 @@ class Animal extends Model
     {
         return $this->belongsToMany(Food::class);
     }
+    public  function birthday()
+    {
+        /* $dateBirthday=Animal::class;
+
+        $years = \Carbon\Carbon::parse($dateBirthday)->age;
+        dd($years); */
+    }
+
+    //accesseur et mutateur 
+    
+    public function getAgeAttribute($age){
+        
+        {
+            return $age;
+        }
+    }
+    public function setAgeAttribute($age){
+        
+        {
+            $this->attribute['age'] = $age;
+        }
+    }
 }

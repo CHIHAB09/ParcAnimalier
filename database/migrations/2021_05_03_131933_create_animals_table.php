@@ -23,7 +23,6 @@ class CreateAnimalsTable extends Migration
             $table->unsignedTinyInteger('poids');
             $table->boolean('actif');
             $table->timestamps();
-            $table->foreignId('food_id')->constrained();
         });
     }
 
